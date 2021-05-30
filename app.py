@@ -3,7 +3,6 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -13,8 +12,6 @@ def home():
 def predict():
 
     data=request.form['tweet']
-    model      =  pickle.load( open('model.pkl','rb'))
-    vectorizer =  pickle.load( open('vectorizer.pkl','rb'))
     converted_data= vectorizer.transform([data])
     prediction = model.predict(converted_data)
     if prediction[0]==0:
@@ -27,4 +24,6 @@ def predict():
     return ('the sentiment is	' + emotion)
 
 if __name__ == "__main__":
+    model      =  pickle.load( open('model.pkl','rb'))
+    vectorizer =  pickle.load( open('vectorizer.pkl','rb'))
     app.run(debug=True)
