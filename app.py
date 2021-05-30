@@ -26,4 +26,4 @@ def predict():
 if __name__ == "__main__":
     model      =  pickle.load( open('model.pkl','rb'))
     vectorizer =  pickle.load( open('vectorizer.pkl','rb'))
-    app.run()
+    app.run(host='0.0.0.0',port=8080)
