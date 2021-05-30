@@ -7,18 +7,16 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
 
-    data=request.form['text_field']
+    data=request.form['tweet']
     model      =  pickle.load( open('model.pkl','rb'))
     vectorizer =  pickle.load( open('vectorizer.pkl','rb'))
     converted_data= vectorizer.transform([data])
     prediction = model.predict(converted_data)
-    #print(prediction)
-    #return render_template('index.html', prediction_text='the emotion is $ {}'.format(prediction))
     if prediction[0]==0:
        emotion="positive" 
     if prediction[0]==1:
@@ -26,7 +24,7 @@ def predict():
     if prediction[0]==2:
        emotion="negative" 
 
-    return jsonify({"sentiment":emotion})
+    return ('the sentiment is	' + emotion)
 
 if __name__ == "__main__":
     app.run(debug=True)
