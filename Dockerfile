@@ -1,4 +1,4 @@
-FROM python:3.5-slim
+FROM python:3
 MAINTAINER admin
 USER root
 WORKDIR /app
