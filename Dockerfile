@@ -3,7 +3,6 @@ MAINTAINER admin
 USER root
 WORKDIR /app
 ADD . /app
-RUN yum update && yum install --no-install-recommends -y python3-dev  gcc build-essential
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+RUN yum update && tum install --no-install-recommends -y python3-dev  gcc build-essential
 EXPOSE 8080
 ENTRYPOINT ["python", "app.py"]
