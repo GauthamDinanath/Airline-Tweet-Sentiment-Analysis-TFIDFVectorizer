@@ -4,3 +4,5 @@ joblib
 xgboost
 flask
 sklearn
+tensorflow
+keras
