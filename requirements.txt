@@ -4,4 +4,4 @@ joblib
 xgboost
 flask
 sklearn
---no-cache-dir tensorflow
+
