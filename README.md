@@ -1,2 +1,2 @@
 # Tweet-Sentiment-Analysis
-Airline Tweet Sentiment Analysis
+Tweet Sentiment Analysis
